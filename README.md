@@ -79,6 +79,7 @@ The steps including pre-sets are the following:
 
 
 1. **Sample Data**
+
 ![Data output](images/table.png)
 
 
