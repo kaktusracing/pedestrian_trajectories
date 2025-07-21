@@ -9,23 +9,20 @@ returns shortened df
 import pandas as pd
 
 
-def subsample(group):
-    start_time = group['time'].iloc[0]
-    mask = ((group['time'] - start_time) % time).abs() < 1e-6  # Avoid float precision issues
-    subsampled = group[mask]
-
-    if len(subsampled) < 2:
-        subsampled = pd.concat([subsampled, group.iloc[[-1]]])
-
-    return subsampled.drop_duplicates(subset='time')
-
-
-
-
 def filter_df(df, time) -> pd.DataFrame:
 
     # Ensure the DataFrame is sorted by 'tracker_id' and 'time'
     df = df.sort_values(by=['tracker_id', 'time'])
+
+    def subsample(group):
+        start_time = group['time'].iloc[0]
+        mask = ((group['time'] - start_time) % time).abs() < 1e-6  # Avoid float precision issues
+        subsampled = group[mask]
+
+        if len(subsampled) < 2:
+            subsampled = pd.concat([subsampled, group.iloc[[-1]]])
+
+        return subsampled.drop_duplicates(subset='time')
 
     # Apply the subsample function to each group
     df_subsampled = df.groupby('tracker_id', group_keys=False).apply(subsample)

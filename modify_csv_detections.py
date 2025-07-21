@@ -39,11 +39,11 @@ from csv_functions_v2 import reduce_csv
 current_date = datetime.datetime.now().strftime("%Y-%m-%d")
 
 #needs to be modified by user:
-directory = "04.trajectory_raw/"
-output_directory = "05.Trajectory_results/"
+directory = "Demo/04.trajectory_raw/"
+output_directory = "Demo/05.trajectory_results/"
 
-point_folder = "07.Geotransformation/Points/"
-place_coord_folder = "08.Place_data/Place_polygons/georeferenced/"
+point_folder = "Demo/07.geotransformation/points/"
+place_coord_folder = "Demo/08.place_data/polygons/"
 
 
 # Define modification properties

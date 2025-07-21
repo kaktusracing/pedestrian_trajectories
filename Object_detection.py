@@ -12,9 +12,9 @@ from multiprocessing import Pool, cpu_count
 print(os.getcwd())
 
 # Directories
-video_processed_dir = '02.video_processed/Celanova/'
-video_results_dir = '03.video_results/Celanova/'
-traj_raw_dir = '04.trajectory_raw/Celanova/'
+video_processed_dir = 'Demo/02.video_processed/'
+video_results_dir = 'Demo/03.video_results/'
+traj_raw_dir = 'Demo/04.trajectory_raw/'
 
 print('loaded directories')
 
@@ -51,9 +51,12 @@ def process_video(args):
     target_path = os.path.join(video_results_dir, f"{filename[:-4]}_{model_name}.mp4")
     os.makedirs(os.path.dirname(target_path), exist_ok=True)
 
+
+    #Set bassed on your hardware and model availability!
+    
     model = YOLO(f"{model_name}.pt")
-    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu') 
-    #device = torch.device('mps' if torch.backends.mps.is_available() else 'cpu')
+    #device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu') 
+    device = torch.device('mps' if torch.backends.mps.is_available() else 'cpu')
     print('Device', device)
     model.to(device)
 

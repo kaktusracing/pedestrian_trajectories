@@ -4,11 +4,11 @@ import datetime
 
 
 # === CONFIGURATION ===
-input_path = '01.video_raw/Celanova/'
-output_path = '02.video_processed/Celanova/'
+input_path = 'Demo/01.video_raw/'
+output_path = 'Demo/02.video_processed/'
 
 start_time_sec = 0  # Start time in seconds
-end_time = 1800   # End time in seconds
+end_time = 10   # End time in seconds
 duration_min = (end_time-start_time_sec)/60
 duration_sec = end_time-start_time_sec
 new_width, new_height = 1280, 720  # New resolution (width, height)
