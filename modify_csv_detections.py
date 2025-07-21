@@ -11,6 +11,8 @@ User needs to modify:
 
 If .tra files need to be created, uncomment function (line 118) and make sure to define right location within "create_trajectory_file_cluster"
 
+
+
 '''
 
 import pandas as pd
