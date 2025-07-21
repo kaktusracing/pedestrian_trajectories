@@ -77,12 +77,6 @@ The steps including pre-sets are the following:
 | nr_people | number of unique tracker_ids calculated for each frame | Int |     |     |     |
 
 
-1. **Sample Data**
-
-![Data output](images/table.png)
-
-
-
 More background information of the research can be found here:
 
 <https://resolver.tudelft.nl/uuid:02d4b4ae-2e8e-46e3-adee-5b6ad7133fc2>
