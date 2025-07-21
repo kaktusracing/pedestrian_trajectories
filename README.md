@@ -33,22 +33,24 @@ For the processing of trajectories, multiple files are needed. For the georefere
 
 To exclude data points outside of the study-area, we use a polygon of the study area in real-world coordinates. The polygon file is expected as .csv file with each node coordinate in the columns “real_world_x” and “real_world_y”.
 
+
 The steps including pre-sets are the following:
 
-- 1. Trajectories with less than 30 frames were removed.
-  2. The center coordinates for each human location (y_max = bottom; x_centre=x_max-x_min) were calculated.
-  3. Jittering and outliers were removed by applying a sliding window on human coordinates. Window size = 8.
-  4. Real-world coordinates were calculated.
-        1. Input files: transformation matrix to transform pixel coordinates into real-world coordinates.
-        2. Real-world coordinates were saved in the system ESPG: 3857.
-  5. Trajectories were masked with the place polygons: Coordinates outside of the place polygon were removed (e.g. when on private ground or road).
-  6. Again, all trajectories with less than 30 frames were removed.
-  7. The complexity (and size) of trajectories was reduced by reducing the resolution of data points from 15 points per second to two points per second. This increased the processing speed of following calculation steps and removed unneeded complexity. The impact of outliers was reduced by already having calculated the moving average in step 4-c.
-  8. A geojson file with all trajectories per place was created. It was used to display trajectories in tools like QGIS or ArcGIS for data validation and visualization.
-  9. The walking speed was calculated:
-        1. A column with longitude and latitude was added to avoid distortion of the Mercator projection. long and lat were represented in the crs EPSG:4326.
-        2. Speed of pedestrians was calculated based on the time column and “real_world_x” and “real_world_y”.
-  10. The number of people was calculated for every time of the recording.
+1. Trajectories with less than 30 frames were removed.
+2. The center coordinates for each human location (y_max = bottom; x_centre=x_max-x_min) were calculated.
+3. Jittering and outliers were removed by applying a sliding window on human coordinates. Window size = 8.
+4. Real-world coordinates were calculated.
+    1. Input files: transformation matrix to transform pixel coordinates into real-world coordinates.
+    2. Real-world coordinates were saved in the system ESPG: 3857.
+5. Trajectories were masked with the place polygons: Coordinates outside of the place polygon were removed (e.g. when on private ground or road).
+6. Again, all trajectories with less than 30 frames were removed.
+7. The complexity (and size) of trajectories was reduced by reducing the resolution of data points from 15 points per second to two points per second. This increased the processing speed of following calculation steps and removed unneeded complexity. The impact of outliers was reduced by already having calculated the moving average in step 4-c.
+8. A geojson file with all trajectories per place was created. It was used to display trajectories in tools like QGIS or ArcGIS for data validation and visualization.
+9. The walking speed was calculated:
+    1. A column with longitude and latitude was added to avoid distortion of the Mercator projection. long and lat were represented in the crs EPSG:4326.
+    2. Speed of pedestrians was calculated based on the time column and “real_world_x” and “real_world_y”.
+10. The number of people was calculated for every time of the recording.
+11. 
 
 **The resulting trajectory file contains the following information:**
 
@@ -74,6 +76,7 @@ The steps including pre-sets are the following:
 | frame_index | The video frame on which the detection was performed. For a video with 15 frames per second (fps), there is a time difference of 0.067 seconds between every frame. | Float |     |     |     |
 | speed | Calculated based on longitude and latitude | Float |     | m/s |     |
 | nr_people | number of unique tracker_ids calculated for each frame | Int |     |     |     |
+
 
 1. **Sample Data**
 ![Data output](images/table.png)
