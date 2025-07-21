@@ -48,7 +48,8 @@ The steps including pre-sets are the following:
     1. A column with longitude and latitude was added to avoid distortion of the Mercator projection. long and lat were represented in the crs EPSG:4326.
     2. Speed of pedestrians was calculated based on the time column and “real_world_x” and “real_world_y”.
 10. The number of people was calculated for every time of the recording.
-11. 
+
+
 
 **The resulting trajectory file contains the following information:**
 
