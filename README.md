@@ -81,4 +81,3 @@ More background information of the research can be found here:
 
 <https://resolver.tudelft.nl/uuid:02d4b4ae-2e8e-46e3-adee-5b6ad7133fc2>
 
-When using the repository for your own research, please refer to the dataset Paper published here: XX
