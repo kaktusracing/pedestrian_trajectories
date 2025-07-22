@@ -1,6 +1,6 @@
 # pedestrian_trajectories
 Repository for pedestrian detection from video material including preprocessing of videos, trajectory extraction using YOLOv10 and Bytetrack. Postprocessing of trajectories including georeferencing
-It was originally created for a research project exploring the movement of pedestrians on European squares. The corresponding Dataset was published on XX and can be found on XX.
+It was originally created for a research project exploring the movement of pedestrians on European squares.
 
 The workflow for trajectory extraction entails multiple steps. By running the files unchanged including the "Demo" folder, you can test the code and behavior. For an understanding of each file, please see table below and review the files in the subfolder of "Demo".
 
